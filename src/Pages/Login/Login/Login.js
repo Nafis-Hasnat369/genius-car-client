@@ -26,7 +26,7 @@ const Login = () => {
                 const currentUser = { email: user.email };
 
                 // get jwt token
-                fetch(`https://genius-car-server-woad-three.vercel.app/jwt`, {
+                fetch(`http://localhost:5000/jwt`, {
                     method: 'POST', headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(currentUser)
                 })
