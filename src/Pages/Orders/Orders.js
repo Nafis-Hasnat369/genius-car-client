@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast';
 const Orders = () => {
     const { user, logOut } = useContext(AuthContext);
     const [orders, setOrders] = useState([]);
-
+    
     useEffect(_ => {
         fetch(`http://localhost:5000/orders?email=${user?.email}`, {
             headers: { authorization: `Bearer ${localStorage.getItem('genius-token')}` }
@@ -57,7 +57,7 @@ const Orders = () => {
 
     return (
         <div>
-            <h2>Orders: {orders.length}</h2>
+            <h2>Orders: {orders?.length}</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>
@@ -73,7 +73,7 @@ const Orders = () => {
                     </thead>
                     <tbody>
                         {
-                            orders.map(order => <OrderRow key={order._id}
+                            orders?.map(order => <OrderRow key={order._id}
                                 handleDelete={handleDelete}
                                 order={order}
                                 handleStatusUpdate={handleStatusUpdate}

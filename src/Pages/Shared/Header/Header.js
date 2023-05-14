@@ -5,11 +5,14 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 
 const Header = () => {
-    const { logOut, user } = useContext(AuthContext);
+    const { logOut, user, setLoading } = useContext(AuthContext);
 
     const handleLogOut = _ => {
         logOut()
-            .then(_ => toast.success('Logged out successfully!'))
+            .then(_ => {
+                toast.success('Logged out successfully!');
+                setLoading(false);
+            })
             .catch(err => toast.error(err.message));
     }
     const menuItems = <>
