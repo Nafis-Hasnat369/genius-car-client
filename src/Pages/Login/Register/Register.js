@@ -9,8 +9,8 @@ import { Toaster, toast } from 'react-hot-toast';
 const Register = () => {
 
     const { createUser, updateUserProfile, googleSignIn } = useContext(AuthContext);
-    const location = useLocation();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const from = location?.state?.from?.pathname || '/';
 
